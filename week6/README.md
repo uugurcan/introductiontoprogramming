@@ -1,92 +1,87 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/AbRQ-vv2)
-# 🐍 Introduction to Python — GitHub Classroom Repo
+# 🟢 Project 1 — Temperature Converter
 
-Welcome to the official repository for **Introduction to Python, Session 1**!
-This is your group's shared workspace. All project solutions, notes, and discussions live here.
+**Difficulty:** Easy | **Concepts:** Variables · Arithmetic · f-strings · Type conversion
 
 ---
 
-## 📁 Folder Structure
+## 📋 Problem
+
+Write a program that converts a temperature from **Celsius to Fahrenheit**.
+
+**Formula:** `F = (C × 9/5) + 32`
+
+---
+
+## 📥 Expected Input / Output
 
 ```
-intro-python-classroom/
-├── README.md                        ← You are here
-├── docs/
-│   └── student_notes.docx           ← Session notes (concepts + examples)
-├── projects/
-│   ├── project1-temperature-converter/
-│   ├── project2-number-guessing-game/
-│   ├── project3-grade-calculator/
-│   ├── project4-word-counter/
-│   └── project5-shopping-cart/
-└── .github/
-    └── PULL_REQUEST_TEMPLATE/
-        └── solution.md              ← PR template for every submission
+Enter temperature in Celsius: 100
+100.0°C = 212.0°F
+```
+
+```
+Enter temperature in Celsius: 0
+0.0°C = 32.0°F
 ```
 
 ---
 
-## 🚀 Getting Started
+## 💬 Group Discussion Questions
 
-### 1. Clone this repo
-```bash
-git clone https://github.com/<your-classroom-org>/<your-repo-name>.git
-cd <your-repo-name>
-```
+Before coding, talk through these with your group:
 
-### 2. Create your personal branch
-Each student uses their own branch for every project:
-```bash
-git checkout -b firstname-project1
-# Examples: alice-project1, bob-project2
-```
-
-### 3. Work on a project
-Navigate into the relevant project folder and read its `README.md`.
-Write your solution in the provided `solution.py` file.
-
-### 4. Push and open a Pull Request
-```bash
-git add .
-git commit -m "Alice: solve Project 1 - temperature converter"
-git push origin alice-project1
-```
-Then go to GitHub → **Compare & pull request** → fill in the PR template → assign your group as reviewers.
-
-### 5. Review and discuss
-Leave comments on your groupmates' PRs. The teach-back student posts their explanation as a PR comment before the group merges.
+1. What data type should the user's input be? Why can't you use it directly from `input()`?
+2. How do you apply the formula using Python arithmetic operators?
+3. What does `f"..."` do, and why is it useful here?
+4. What happens if someone types `"abc"` instead of a number?
 
 ---
 
-## 🌿 Branch Naming Convention
+## 🗂 Files
 
-| Pattern | Example |
+| File | What to do |
 |---|---|
-| `firstname-projectN` | `alice-project1` |
-| `firstname-projectN-bonus` | `bob-project3-bonus` |
-
-> **Rule:** Always branch off `main`. Never push directly to `main`.
+| `solution.py` | Write your solution here |
+| `README.md` | This file — read before starting |
 
 ---
 
-## 📋 Projects at a Glance
+## 💻 Starter Code
 
-| # | Project | Difficulty | Key concepts |
-|---|---|---|---|
-| 1 | Temperature Converter | 🟢 Easy | Variables, arithmetic, f-strings |
-| 2 | Number Guessing Game | 🟡 Easy-Medium | while loop, conditions, random |
-| 3 | Grade Calculator | 🟡 Medium | for loop, lists, conditions |
-| 4 | Word Counter | 🟠 Medium-Challenging | strings, loops, dictionaries |
-| 5 | Shopping Cart | 🔴 Challenging | dictionaries, loops, conditions |
+```python
+# Project 1 — Temperature Converter
+# Author: your name here
+# Branch: firstname-project1
+
+# Step 1 — Get input from the user and convert to float
+celsius = float(input("Enter temperature in Celsius: "))
+
+# Step 2 — Apply the formula
+# fahrenheit = ???
+
+# Step 3 — Print the result using an f-string
+# print(f"...")
+```
 
 ---
 
-## 📚 Resources
+## ✅ Peer-Learning Steps
 
-- [Python official docs](https://docs.python.org/3/)
-- [GitHub Classroom guide](https://docs.github.com/en/education/manage-coursework-with-github-classroom)
-- Session notes → `docs/student_notes.docx`
+1. **Think alone (5 min):** Read the problem, write pseudocode (plain English steps) in a comment block.
+2. **Discuss in group (10 min):** Compare approaches. Agree on a plan.
+3. **Teach-back:** One student explains the solution to the group before anyone codes.
+4. **Code individually:** Each student writes their version on their own branch.
+5. **Open a PR** using the template and request your group as reviewers.
 
 ---
 
-*Happy coding! Remember: read the `# comments` in every example — they explain what each line does.*
+## ⭐ Bonus Challenge
+
+Add a menu so the user can choose the direction:
+
+```
+Convert: (1) Celsius → Fahrenheit  (2) Fahrenheit → Celsius
+Choice: 2
+Enter temperature in Fahrenheit: 98.6
+98.6°F = 37.0°C
+```
