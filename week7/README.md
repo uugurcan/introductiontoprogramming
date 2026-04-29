@@ -1,128 +1,83 @@
-# CS50 Python & CSV — Collaborative Learning Repository
+# 🔴 Project 5 — Mini Shopping Cart
 
-Welcome! This is the class repository for **Introduction to Programming** (CS50-style).  
-You will learn Python CSV processing, build real projects, review your peers' code, and explain your thinking in pull requests. **All three activities are assessed.**
-
----
-
-## 📁 Repository Structure
-
-```
-cs50-python-csv/
-├── week1/          ← CSV basics: csv.reader, DictReader, counting
-├── week2/          ← Sorting, SQL, parameterised queries
-├── mini-projects/  ← 4 graded in-class projects
-└── challenges/     ← Optional extension problems
-```
+**Difficulty:** Challenging | **Concepts:** Dictionaries · Loops · Conditions · Formatting
 
 ---
 
-## 🚀 Quick Start (Do This First)
+## 📋 Problem
 
-```bash
-# 1. Accept the GitHub Classroom assignment link (from your instructor)
-# 2. Clone YOUR fork
-git clone https://github.com/YOUR-USERNAME/cs50-python-csv.git
-cd cs50-python-csv
+Build a text-based shopping cart. The program shows a menu, lets the user add items, tracks a running total, and prints a receipt when done.
 
-# 3. Add the upstream remote so you can pull updates
-git remote add upstream https://github.com/COURSE-ORG/cs50-python-csv.git
+---
 
-# 4. Create your first branch (replace 'yourname')
-git checkout -b yourname/week1
+## 📥 Expected Input / Output
 
-# 5. Work, commit, push, open a PR
-git add .
-git commit -m "feat(week1): add DictReader solution"
-git push origin yourname/week1
-# Then open a Pull Request on GitHub: yourname/week1 → group/YOUR-TEAM
+```
+--- Shop Menu ---
+1. Apple    $0.50
+2. Banana   $0.30
+3. Milk     $1.20
+4. Bread    $2.00
+5. Done
+
+Choose an item (1-5): 1
+Added Apple. Total: $0.50
+Choose an item (1-5): 3
+Added Milk. Total: $1.70
+Choose an item (1-5): 5
+
+--- Receipt ---
+Apple    x1   $0.50
+Milk     x1   $1.20
+---------------------
+Total: $1.70
+Thank you!
 ```
 
 ---
 
-## 🌿 Branching Strategy
+## 💬 Group Discussion Questions
 
-| Branch | Purpose | Who commits |
-|--------|---------|-------------|
-| `main` | Protected. Clean, reviewed solutions only | Instructor only |
-| `group/<team-name>` | Shared team branch. Base for all your work | Instructor creates; team merges into |
-| `<yourname>/week<n>` | Your weekly exercises (e.g. `amira/week1`) | You |
-| `<yourname>/project<n>` | Your mini-project work (e.g. `jorge/project2`) | You |
-| `hotfix/<issue-number>` | Fix a bug found after merge | Team member who spotted it |
-
-### Rules (non-negotiable)
-1. **Never commit directly to `main` or your group branch.**
-2. Always branch from your **group branch**, not from `main`.
-3. Branch names must follow the naming convention — PRs with wrong names are returned unreviewed.
-4. Delete your feature branch after the PR is merged.
+1. How do you represent the menu? (A list? A dictionary? Both?)
+2. How do you keep the program looping until the user picks "Done"?
+3. How do you track quantities if the same item is selected twice?
+4. How do you format currency to always show 2 decimal places? (Hint: `f"{price:.2f}"`)
 
 ---
 
-## 💬 Commit Message Format
+## 💻 Starter Code
 
-```
-type(scope): short description
+```python
+# Project 5 — Mini Shopping Cart
+# Author: your name here
 
-Types : feat | fix | docs | test | refactor | style
-Scopes: week1 | week2 | project1 | project2 | project3 | project4
+menu = {
+    1: ("Apple",  0.50),
+    2: ("Banana", 0.30),
+    3: ("Milk",   1.20),
+    4: ("Bread",  2.00),
+}
 
-Examples:
-  feat(week1): switch reader to DictReader
-  fix(project2): handle KeyError for empty CSV rows
-  docs(week2): add comments explaining sorted() key argument
-  test(project3): add edge case for zero-attendee event
+cart  = {}   # { item_name: quantity }
+total = 0.0
+
+# TODO: display the menu
+# TODO: shopping loop (while True / break on choice 5)
+# TODO: add item to cart, update total
+# TODO: print the receipt
 ```
 
 ---
 
-## 👥 The Four Roles
+## ✅ Required for this PR
 
-Roles rotate every project so everyone practises everything.
-
-| Role | Responsibility | GitHub Duty |
-|------|---------------|-------------|
-| 🧑‍💻 **Coder** | Writes the working solution | Opens PR; fills code sections |
-| 🔍 **Reviewer** | Ensures code quality | Leaves inline comments; must approve before merge |
-| 🧪 **Tester** | Verifies correctness with real inputs | Pastes test output as PR evidence |
-| 🏫 **Mentor** | Supports the group; asks questions, never gives answers | Writes the Teach-Back section in the PR |
+In your PR description, explain:
+- How your cart handles duplicate items (same item chosen twice).
+- What happens if the user enters an invalid number.
 
 ---
 
-## 🔄 Workflow Step by Step
+## ⭐ Bonus Challenge
 
-```
-1. Read the problem brief in the project README
-2. Think individually for 8–10 minutes (no code yet — write in plain English)
-3. Discuss as a group — agree on data structures and approach
-4. Coder types; Reviewer watches and asks "why?"; Tester runs code
-5. Open a PR using the PR template — fill in EVERY section
-6. Reviewer leaves at least 2 inline comments
-7. Tester adds test output as a PR comment
-8. Mentor completes the Teach-Back section
-9. Merge only after: teach-back done ✓ + peer approved ✓ + test evidence shown ✓
-```
-
----
-
-## ❓ Getting Help
-
-- **Stuck on a concept?** Open an Issue using the `question` template. Tag `@programming-coach`.
-- **Found a bug after merging?** Open an Issue with the `bug` template, then create a `hotfix/` branch.
-- **Want to discuss an approach?** Comment directly on the relevant PR or commit.
-
-> 💡 Do not ask for help in WhatsApp or private messages. All discussion belongs in GitHub Issues and PR comments so the whole class can learn from it.
-
----
-
-## 📊 Assessment Weights
-
-| Component | Weight |
-|-----------|--------|
-| Working code (correct output) | 40% |
-| Teach-Back PR description | 30% |
-| Code review comments given to peers | 15% |
-| Commit history, branching, PR workflow | 15% |
-
----
-
-*Questions about the repository setup? Open an Issue with the `question` template.*
+- Ask "How many?" for each item instead of always adding 1.
+- Apply a **10% discount** if the total exceeds $5.00.
